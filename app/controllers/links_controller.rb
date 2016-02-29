@@ -8,7 +8,7 @@ class LinksController < ApplicationController
     if @link.save
       flash[:success] = "Link #{@link.title} created"
     else
-      flash.now[:error] = @link.errors.full_messages.to_sentence
+      flash[:error] = @link.errors.full_messages.to_sentence
     end
     redirect_to links_path
   end

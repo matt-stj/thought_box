@@ -1,7 +1,8 @@
 <h1>Links Index</h1>
 
-<h3>Once a link has been submitted, loading the index page should display all of my links.</h3>
-
+<p>
+  Be sure to include 'http://' when submitting links!
+</p>
 <div class="link-form">
   <%= form_for(Link.new) do |f| %>
       <%= f.hidden_field(:user_id, :value => current_user.id) if current_user %>
