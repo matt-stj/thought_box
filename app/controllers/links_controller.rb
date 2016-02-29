@@ -17,8 +17,16 @@ class LinksController < ApplicationController
     @links = current_user.links
   end
 
+  def edit
+    @link = Link.find(params[:id])
+  end
+
   def update
-    Link.find(params[:id]).update_attributes(read: params[:read])
+    @link = Link.find(params[:id])
+    if @link.update_attributes(link_params)
+    else
+      flash[:message] = @link.errors.full_messages.to_sentence
+    end
     redirect_to links_path
   end
 
