@@ -32,7 +32,7 @@
       <% if !link.read %>
         <td class="unread"><%= link_to "Mark as Read", link_path(link, {:link => {:read => true }}), method: :patch %></td>
       <% else %>
-        <td class="read"><%= link_to "Mark as Unread", link_path(link, :read => false), method: :patch %></td>
+        <td class="read"><%= link_to "Mark as Unread", link_path(link, {:link => {:read => false }}), method: :patch %></td>
       <% end %>
       <td><%= link_to "Edit", edit_link_path(link) %></td>
     </tr>
