@@ -1,1 +1,34 @@
 <h1>Links Index</h1>
+
+<p>
+  Be sure to include 'http://' when submitting links!
+</p>
+<div class="link-form">
+  <%= form_for(Link.new) do |f| %>
+      <%= f.hidden_field(:user_id, :value => current_user.id) if current_user %>
+    <%= f.label :link_url %>
+    <%= f.text_field :link_url %>
+    <%= f.label :title %>
+    <%= f.text_area :title %>
+      <%= f.submit "Submit" %>
+  <% end %>
+</div>
+
+<table class="centered">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Link URL</th>
+      <th>Read</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @links.each do |link| %>
+    <tr>
+      <td><%= link.title %></td>
+      <td><%= link.link_url %></td>
+      <td><%= link.read %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
