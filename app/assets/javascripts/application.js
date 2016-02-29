@@ -37,8 +37,44 @@ app.controller('LinksCtrl', function($scope, $http) {
     });
 
     $scope.markUnread = function(link) {
-      console.log("hi")
+      var updateURL = "/api/v1/links/" + link.id + ".json"
+      var linkParams = {
+        link: {
+          read: false
+        }
+      }
 
+      $http.put(updateURL, linkParams)
+        .then(function(response) {
+          var updatedLink = $scope.links.filter(function(x) { return x.id == link.id; });
+            updatedLink[0].read = false
+            console.log(response, link)
+          },
+
+          function(error) {
+            console.log(error)
+          })
   };
+
+  $scope.markRead = function(link) {
+    var updateURL = "/api/v1/links/" + link.id + ".json"
+    var linkParams = {
+      link: {
+        read: true
+      }
+    }
+
+    $http.put(updateURL, linkParams)
+      .then(function(response) {
+        var updatedLink = $scope.links.filter(function(x) { return x.id == link.id; });
+          updatedLink[0].read = true
+          console.log(response, link)
+        },
+
+        function(error) {
+          console.log(error)
+        })
+};
+
 
 });
