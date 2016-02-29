@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       flash[:success] = "Logged in as #{@user.email}"
       puts "it worked"
     else
-      flash.now[:error] = @user.errors.full_messages
+      flash.now[:error] = @user.errors.full_messages.to_sentence
       render :new
     end
   end
