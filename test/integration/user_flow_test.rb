@@ -47,5 +47,6 @@ class UserFlowTest < ActionDispatch::IntegrationTest
     click_button("Login")
 
     assert_equal(current_path, links_path)
+    assert page.has_content?("google")
   end
 end

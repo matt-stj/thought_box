@@ -2,6 +2,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
+require 'database_cleaner'
+
 
 class ActiveSupport::TestCase
 end
@@ -10,12 +12,14 @@ end
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
 
-  def teardown
-    reset_session!
-  end
+  DatabaseCleaner.strategy = :transaction
 
   def setup
-    user = User.create(email: "hi@hi.com", password: "hi")
-    user.links.create(title: "hi", link_url: "http://www.hi.com")
+    DatabaseCleaner.start
+  end
+
+  def teardown
+    DatabaseCleaner.clean
+    reset_session!
   end
 end
