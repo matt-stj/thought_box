@@ -39,3 +39,34 @@
     <% end %>
   </tbody>
 </table>
+
+<!-- API CALL BELOW -->
+<br>
+APIIII BEELOWWW
+<br>
+
+
+
+<table class="centered">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Link URL</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="links" ng-repeat="link in links track by $index">
+      <td>{{ link.title }}</td>
+      <td>{{ link.link_url }}</td>
+      <td ng-if="!link.read">
+          Mark as Read
+      </td>
+      <td ng-if="link.read">
+        <button class="btn read red" ng-click="markUnread(link)">Mark as Unread</button>
+      </td>
+      <td>Edit</td>
+    </div>
+  </tbody>
+</table>
