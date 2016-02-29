@@ -1,8 +1,8 @@
 <h3>Links Index for <%= current_user.email %></h3>
+<br>
+<br>
 
-<p>
-  Note: Be sure to include 'http://' when submitting links!
-</p>
+<p>Note: Be sure to include 'http://' when submitting links!</p>
 <div class="link-form">
   <%= form_for(Link.new) do |f| %>
       <%= f.hidden_field(:user_id, :value => current_user.id) if current_user %>
