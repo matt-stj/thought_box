@@ -10,7 +10,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to links_path
       flash[:success] = "Logged in as #{@user.email}"
-      puts "it worked"
     else
       flash.now[:error] = @user.errors.full_messages.to_sentence
       render :new
