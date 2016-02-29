@@ -1,7 +1,7 @@
-<h1>Links Index</h1>
+<h3>Links Index for <%= current_user.email %></h3>
 
 <p>
-  Be sure to include 'http://' when submitting links!
+  Note: Be sure to include 'http://' when submitting links!
 </p>
 <div class="link-form">
   <%= form_for(Link.new) do |f| %>
@@ -20,7 +20,8 @@
     <tr>
       <th>Title</th>
       <th>Link URL</th>
-      <th>Read</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -29,10 +30,11 @@
       <td><%= link.title %></td>
       <td><%= link.link_url %></td>
       <% if !link.read %>
-        <td class="unread"><%= link_to "Mark as Read", link_path(link, :read => true), method: :patch %></td>
+        <td class="unread"><%= link_to "Mark as Read", link_path(link, {:link => {:read => true }}), method: :patch %></td>
       <% else %>
         <td class="read"><%= link_to "Mark as Unread", link_path(link, :read => false), method: :patch %></td>
       <% end %>
+      <td><%= link_to "Edit", edit_link_path(link) %></td>
     </tr>
     <% end %>
   </tbody>
