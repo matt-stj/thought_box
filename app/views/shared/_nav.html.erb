@@ -1,0 +1,14 @@
+<nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Home</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if current_user %>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+          <li><%= link_to "My Links", links_path %></li>
+        <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to "Sign up", new_user_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
