@@ -1,0 +1,18 @@
+<div class="center-box">
+  <h4>Login:</h4>
+
+  <div class="login_form">
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <br>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      <br>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+      <br>
+      <%= f.submit "Login", class:"btn" %>
+    <% end %>
+  </div>
+</div>
