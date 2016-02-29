@@ -37,7 +37,9 @@ gem "validate_url"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'pry'  
+  gem 'pry'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :test do

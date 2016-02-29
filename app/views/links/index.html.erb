@@ -27,7 +27,11 @@
     <tr>
       <td><%= link.title %></td>
       <td><%= link.link_url %></td>
-      <td><%= link.read %></td>
+      <% if !link.read %>
+        <td class="unread"><%= link_to "Mark as Read", link_path(link, :read => true), method: :patch %></td>
+      <% else %>
+        <td class="read"><%= link_to "Mark as Unread", link_path(link, :read => false), method: :patch %></td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>
