@@ -3,13 +3,7 @@ class Api::V1::LinksController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Link.all
+    respond_with current_user.links
   end
-
-  def show
-    @user = User.find(params[:id])
-    respond_with @user.links
-  end
-
 
 end
