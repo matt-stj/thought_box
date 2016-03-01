@@ -19,6 +19,9 @@
 
 $(document).ready(function() {
 searchBar();
+readFilter();
+unreadFilter();
+showAll();
 })
 
 

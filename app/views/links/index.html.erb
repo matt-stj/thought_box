@@ -15,7 +15,9 @@
 </div>
 <br>
 
-<button class="btn read grey" ng-click="showRead(read)">Show Read</button>
+<button class="btn read grey center" id="readToggle">Show Unread</button>
+<button class="btn read teal" id="unreadToggle">Show Read</button>
+<button class="btn read green" id="showAllToggle">Show All</button>
 
 <div class="row">
   <div class="form-group search container col-md-6 col-md-offset-3">
@@ -48,7 +50,6 @@
       </td>
       <td>
         <a class="btn orange" ng-href="/links/{{link.id}}/edit">Edit</a>
-
       </td>
     </div>
   </tbody>
