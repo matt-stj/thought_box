@@ -1,5 +1,5 @@
 ## Thoughtbox
 
-##### An exercise to build an app that allows you to store links.
+##### An exercise to build an app that allows you to keep track of your favorite links.
 
-view live app [here](https://matt-stj-thought-box.herokuapp.com/)
+View live app [here](https://matt-stj-thought-box.herokuapp.com/).
