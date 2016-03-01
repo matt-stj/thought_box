@@ -61,7 +61,8 @@ APIIII BEELOWWW
       <td>{{ link.title }}</td>
       <td>{{ link.link_url }}</td>
       <td ng-if="!link.read">
-          Mark as Read
+        <button class="btn read green" ng-click="markRead(link)">Mark as Read</button>
+
       </td>
       <td ng-if="link.read">
         <button class="btn read red" ng-click="markUnread(link)">Mark as Unread</button>
