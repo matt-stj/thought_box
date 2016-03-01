@@ -17,6 +17,11 @@
 //= require angular
 //= require_tree .
 
+$(document).ready(function() {
+searchBar();
+})
+
+
 var app = angular.module('Links', []);
 
 var apiURL = "/api/v1/links.json";
@@ -75,6 +80,11 @@ app.controller('LinksCtrl', function($scope, $http) {
           console.log(error)
         })
       };
+
+      $scope.showRead = function(read) {
+          var readLinks = $scope.links.map(function(link) { return link.read == true; });
+          console.log(readLinks)
+        }
 
 
 });

@@ -15,7 +15,18 @@
 </div>
 <br>
 
-<table class="centered">
+<button class="btn read grey" ng-click="showRead(read)">Show Read</button>
+
+<div class="row">
+  <div class="form-group search container col-md-6 col-md-offset-3">
+    <br>
+    <%= form_tag( id: "seach-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for a Link", class: "form-control col-md-3" %>
+    <% end %>
+  </div>
+</div>
+
+<table class="centered link-table">
   <thead>
     <tr>
       <th>Title</th>
