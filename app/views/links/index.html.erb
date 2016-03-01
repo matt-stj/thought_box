@@ -15,7 +15,20 @@
 </div>
 <br>
 
-<table class="centered">
+<button class="btn read grey center" id="readToggle">Show Unread</button>
+<button class="btn read teal" id="unreadToggle">Show Read</button>
+<button class="btn read green" id="showAllToggle">Show All</button>
+
+<div class="row">
+  <div class="form-group search container col-md-6 col-md-offset-3">
+    <br>
+    <%= form_tag( id: "seach-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for a Link", class: "form-control col-md-3" %>
+    <% end %>
+  </div>
+</div>
+
+<table class="centered link-table">
   <thead>
     <tr>
       <th>Title</th>
@@ -25,17 +38,19 @@
     </tr>
   </thead>
   <tbody>
-    <% @links.each do |link| %>
-    <tr>
-      <td><%= link.title %></td>
-      <td><%= link.link_url %></td>
-      <% if !link.read %>
-        <td class="unread"><%= link_to "Mark as Read", link_path(link, {:link => {:read => true }}), method: :patch %></td>
-      <% else %>
-        <td class="read"><%= link_to "Mark as Unread", link_path(link, {:link => {:read => false }}), method: :patch %></td>
-      <% end %>
-      <td><%= link_to "Edit", edit_link_path(link) %></td>
-    </tr>
-    <% end %>
+    <tr class="links" ng-repeat="link in links track by $index">
+      <td>{{ link.title }}</td>
+      <td>{{ link.link_url }}</td>
+      <td ng-if="!link.read">
+        <button class="btn read green" ng-click="markRead(link)">Mark as Read</button>
+
+      </td>
+      <td ng-if="link.read">
+        <button class="btn read red" ng-click="markUnread(link)">Mark as Unread</button>
+      </td>
+      <td>
+        <a class="btn orange" ng-href="/links/{{link.id}}/edit">Edit</a>
+      </td>
+    </div>
   </tbody>
 </table>
