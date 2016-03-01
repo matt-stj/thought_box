@@ -74,7 +74,7 @@ app.controller('LinksCtrl', function($scope, $http) {
         function(error) {
           console.log(error)
         })
-};
+      };
 
 
 });
