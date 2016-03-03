@@ -24,7 +24,6 @@ unreadFilter();
 showAll();
 })
 
-
 var app = angular.module('Links', []);
 
 var apiURL = "/api/v1/links.json";
@@ -36,7 +35,7 @@ function Link(id, link_url, title, read){
   this.read = read
 }
 
-app.controller('LinksCtrl', function($scope, $http) {
+app.controller('LinksCtrl', ['$scope', '$http', function($scope, $http) {
 
   $http.get(apiURL).success(function(response) {
       $scope.links = response.map(function(link) {
@@ -90,4 +89,4 @@ app.controller('LinksCtrl', function($scope, $http) {
         }
 
 
-});
+}]);
